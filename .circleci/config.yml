@@ -7,6 +7,7 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - run: ls -al
       - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
           root: packages/blog
