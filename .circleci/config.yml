@@ -6,6 +6,8 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - attach_workspace:
+          at: /tmp/blog
       - checkout
       - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
@@ -16,16 +18,21 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - attach_workspace:
+          at: /tmp/blog
       - checkout
+      - run: ls && cd node_modules && ls -al
       - run: bash ./scripts/blog/build.sh
       - persist_to_workspace:
-          root: packages/blog
+          root: /tmp/blog/packages/blog
           paths: public
   deploy-blog:
     shell: /bin/bash
     docker:
       - image: circleci/node:8
     steps:
+      - attach_workspace:
+          at: /tmp/blog
       - checkout
       - run: npm install
       - run: npm run ts-node ./scripts/blog/deploy.ts
