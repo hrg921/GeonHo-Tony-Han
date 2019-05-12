@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
-          root: packages/blog
+          root: /tmp/blog/packages/blog
           paths: node_modules
   build-blog:
     shell: /bin/bash
