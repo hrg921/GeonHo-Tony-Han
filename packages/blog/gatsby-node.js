@@ -54,21 +54,24 @@ exports.createPages = ({ graphql, actions }) => {
     const { edges } = result.data.allMarkdownRemark
 
     edges.forEach(({ node }) => {
-      console.log(node)
-      const { fields, frontmatter } = node
-      const { slug } = fields
-      const { type } = frontmatter
+      try {
+        const { fields, frontmatter } = node
+        const { slug } = fields
+        const { type } = frontmatter
 
-      if (type === "til") {
-        const component = path.resolve(`./src/templates/til.jsx`)
+        if (type === "til") {
+          const component = path.resolve(`./src/templates/til.jsx`)
 
-        createPage({
-          path: slug,
-          component,
-          context: {
-            slug: node.fields.slug,
-          },
-        })
+          createPage({
+            path: slug,
+            component,
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        }
+      } catch (error) {
+        console.error(node.frontmatter, error)
       }
     })
   })

@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  install-blog-dependencies:
+    working_directory: ~/GeonHo-Tony-Han
+    shell: /bin/sh
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: bash ./scripts/blog.install.sh
+      - persist_to_workspace:
+          root: packages/blog
+          paths: node_modules
+  build-blog:
+    working_directory: ~/GeonHo-Tony-Han
+    shell: /bin/sh
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: bash ./scripts/blog/build.sh
+      - persist_to_workspace:
+          root: packages/blog
+          paths: public
+  deploy-blog:
+    working_directory: ~/GeonHo-Tony-Han
+    shell: /bin/sh
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: npm install
+      - run: npm run ts-node ./scripts/blog/deploy.ts
+
+workflows:
+  version: 2.1
+  build-and-deploy-blog:
+    jobs:
+      - install-blog-dependencies
+      - build-blog
+      - deploy-blog
