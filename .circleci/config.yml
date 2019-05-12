@@ -33,5 +33,10 @@ workflows:
   build-and-deploy-blog:
     jobs:
       - install-blog-dependencies
-      - build-blog
-      - deploy-blog
+      - build-blog:
+          requires:
+            - install-blog-dependencies
+      - deploy-blog:
+          requires:
+            - install-blog-dependencies
+            - build-blog
