@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
-      - run: bash ./scripts/blog.install.sh
+      - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
           root: packages/blog
           paths: node_modules
