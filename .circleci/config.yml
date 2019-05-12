@@ -6,11 +6,10 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - attach_workspace:
+          at: /tmp/blog
       - checkout
       - run: bash ./scripts/blog/install.sh
-      - run:
-          name: make workspace to store node_modules for blog
-          command: mkdir /tmp/blog
       - persist_to_workspace:
           root: /tmp/blog
           paths: packages/blog/node_modules/**/*
