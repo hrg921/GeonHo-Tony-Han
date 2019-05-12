@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   install-blog-dependencies:
     working_directory: ~/GeonHo-Tony-Han
-    shell: /bin/sh
+    shell: /bin/bash
     docker:
       - image: circleci/node:8
     steps:
@@ -13,7 +13,7 @@ jobs:
           paths: node_modules
   build-blog:
     working_directory: ~/GeonHo-Tony-Han
-    shell: /bin/sh
+    shell: /bin/bash
     docker:
       - image: circleci/node:8
     steps:
@@ -23,7 +23,7 @@ jobs:
           paths: public
   deploy-blog:
     working_directory: ~/GeonHo-Tony-Han
-    shell: /bin/sh
+    shell: /bin/bash
     docker:
       - image: circleci/node:8
     steps:
