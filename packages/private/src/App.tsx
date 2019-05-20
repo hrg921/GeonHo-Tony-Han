@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
+import HomePage from './pages/home/HomePage';
 import ETCRoutes, { basePath as etcBasePath } from './routes/ETCRoutes';
 import MakerRoutes, { basePath as makerBasePath } from './routes/MakerRoutes';
 import MoneyFlowRoutes, {
@@ -44,7 +45,7 @@ class App extends React.Component {
               {routes.map(route => (
                 <Route path={`/${route.path}`} component={route.component} />
               ))}
-              <Route path="/" component={MakerRoutes} />
+              <Route path="/" component={HomePage} />
             </Switch>
           </Router>
         </ApolloProvider>
