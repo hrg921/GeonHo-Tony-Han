@@ -14,8 +14,10 @@ const Container = styled.section`
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding-left: 8px;
+  padding-right: 8px;
   padding-top: 20px;
-  width: 100%;
+  width: calc(100% - 16px);
 `;
 
 const Title = styled.h1`
