@@ -1,28 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import data from './data';
 import CoreValue from './CoreValue';
+import data from './data';
 
 export default React.memo(() => (
   <Container>
     <Title>💎 Core Values</Title>
-    {data.map((value, index) => (
-      <CoreValue key={index} {...value} />
-    ))}
+    <CoreValueContainer>
+      {data.map((value, index) => (
+        <CoreValue key={index} {...value} />
+      ))}
+    </CoreValueContainer>
   </Container>
 ));
 
 const Container = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 `;
 
 const Title = styled.h1`
   display: flex;
   font-size: 32px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+`;
+
+const CoreValueContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 `;

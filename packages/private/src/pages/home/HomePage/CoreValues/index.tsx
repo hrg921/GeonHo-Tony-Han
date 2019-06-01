@@ -10,6 +10,6 @@ export default React.memo(() => (
 ));
 
 const Wrapper = styled.section`
-  margin-top: 16px;
+  margin-top: 40px;
   width: 100%;
 `;

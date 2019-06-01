@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { PADDING_LEFT as PAGE_PADDING_LEFT, PADDING_RIGHT as PAGE_PADDING_RIGHT } from '../../constants';
+
+const GAP = 32;
+const HORIZONTAL_PADDING = 16;
 
 interface Props {
   title: string;
@@ -24,13 +28,13 @@ const Container = styled.section`
   background-color: white;
   border-radius: 4px;
   color: #333;
-  flex-grow: 1;
   margin-bottom: 16px;
-  margin-left: 16px;
-  margin-right: 16px;
   max-width: 480px;
-  min-width: 300px;
-  padding: 12px 16px;
+  padding: 12px ${HORIZONTAL_PADDING}px;
+  width: calc(
+    (100vw - ${PAGE_PADDING_LEFT}px - ${PAGE_PADDING_RIGHT}px - ${GAP * 2}px) /
+      3 - ${HORIZONTAL_PADDING}px * 2
+  );
 `;
 
 const Title = styled.h1`

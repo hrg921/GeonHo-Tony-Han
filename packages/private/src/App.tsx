@@ -1,15 +1,14 @@
+import './App.css';
+
 import { Provider } from 'mobx-react';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import './App.css';
 import HomePage from './pages/home/HomePage';
 import ETCRoutes, { basePath as etcBasePath } from './routes/ETCRoutes';
 import MakerRoutes, { basePath as makerBasePath } from './routes/MakerRoutes';
-import MoneyFlowRoutes, {
-  basePath as moneyFlowBasePath,
-} from './routes/MoneyFlowRoutes';
+import MoneyFlowRoutes, { basePath as moneyFlowBasePath } from './routes/MoneyFlowRoutes';
 import { client } from './stores/apollo';
 import { store } from './stores/mobx';
 
@@ -17,6 +16,10 @@ interface RouteGroupItem {
   path: string;
   component: React.ComponentClass;
 }
+
+const dreamRoute = {
+  path: 'dream/:title',
+};
 
 const etcRoute = {
   path: etcBasePath,

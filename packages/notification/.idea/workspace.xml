@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f32a62d0-c10d-485a-bbea-cec227caa614" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../algorithms/.idea/algorithms.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/1001.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../slack/slack.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/input_output/10172.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/input_output/10718.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/input_output/11718.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/input_output/test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithms/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithms/acmicpc.net/1001.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/input_output/1001.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithms/acmicpc.net/7287.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/acmicpc.net/input_output/7287.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../algorithms/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithms/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -187,9 +182,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -215,12 +214,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558452600439</updated>
-      <workItem from="1558452603825" duration="863000" />
+      <workItem from="1558452603825" duration="864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="863000" />
+    <option name="totallyTimeSpent" value="864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
