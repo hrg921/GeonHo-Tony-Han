@@ -1,17 +1,17 @@
 version: 2
 
+# BLOG_WORKING_DIRECTORY: &blog_working_directory /tmp/workspace/log
+
 jobs:
   install-blog-dependencies:
     shell: /bin/bash
     docker:
       - image: circleci/node:8
     steps:
-      - attach_workspace:
-          at: /workspace/blog
       - checkout
       - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
-          root: /workspace/blog
+          root: .
           paths: .
   build-blog:
     shell: /bin/bash
@@ -19,7 +19,7 @@ jobs:
       - image: circleci/node:8
     steps:
       - attach_workspace:
-          at: /workspace/blog
+          at: .
       - run: sudo apt-get install tree
       - run: tree
       - run: echo $PWD
@@ -27,14 +27,14 @@ jobs:
       - run: bash ./scripts/blog/build.sh
       - persist_to_workspace:
           root: .
-          paths: packages/blog/public/**/*
+          paths: .
   deploy-blog:
     shell: /bin/bash
     docker:
       - image: circleci/node:8
     steps:
       - attach_workspace:
-          at: /tmp/blog
+          at: .
       - checkout
       - run: npm install
       - run: npm run ts-node ./scripts/blog/deploy.ts
