@@ -12,6 +12,7 @@ jobs:
       - run: sudo apt-get install tree
       - run: tree
       - run: bash ./scripts/blog/install.sh
+      - run: tree
       - run: ls
       - persist_to_workspace:
           root: /tmp/blog
