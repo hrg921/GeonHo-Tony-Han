@@ -7,11 +7,11 @@ jobs:
       - image: circleci/node:8
     steps:
       - attach_workspace:
-          at: /tmp/blog
+          at: /workspace/blog
       - checkout
       - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
-          root: .
+          root: /workspace/blog
           paths: .
   build-blog:
     shell: /bin/bash
@@ -19,7 +19,7 @@ jobs:
       - image: circleci/node:8
     steps:
       - attach_workspace:
-          at: /tmp/blog
+          at: /workspace/blog
       - run: sudo apt-get install tree
       - run: tree
       - run: echo $PWD
