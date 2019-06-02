@@ -34,7 +34,8 @@ jobs:
       - run: git config --global user.email "hrg921@gmail.com"
       - run: git config --global user.name "GeonHo Tony Han Circle CI Bot"
       - run: npm install
-      - run: ls
+      - run: sudo apt-get install tree
+      - run: tree
       - run: npm run ts-node ./scripts/blog/deploy.ts
 
 workflows:
