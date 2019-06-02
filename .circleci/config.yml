@@ -33,7 +33,9 @@ jobs:
           at: .
       - run: git config --global user.email "hrg921@gmail.com"
       - run: git config --global user.name "GeonHo Tony Han Circle CI Bot"
-      - run: git config --global credential.helper wincred
+      - add_ssh_keys:
+          fingerprints:
+            - 'da:1f:cf:8d:3c:12:fc:72:6f:0e:d5:4e:38:a3:d2:82'
       - run: npm install
       - run: npm run ts-node ./scripts/blog/deploy.ts
 
