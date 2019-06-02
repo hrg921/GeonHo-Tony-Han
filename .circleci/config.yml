@@ -33,6 +33,7 @@ jobs:
           at: .
       - run: git config --global user.email "hrg921@gmail.com"
       - run: git config --global user.name "GeonHo Tony Han Circle CI Bot"
+      - run: ls
       - run: npm run ts-node ./scripts/blog/deploy.ts
 
 workflows:
