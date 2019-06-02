@@ -12,7 +12,7 @@ jobs:
       - run: bash ./scripts/blog/install.sh
       - persist_to_workspace:
           root: .
-          paths: packages/blog
+          paths: .
   build-blog:
     shell: /bin/bash
     docker:
