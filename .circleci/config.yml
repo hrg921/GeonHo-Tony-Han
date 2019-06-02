@@ -35,7 +35,7 @@ jobs:
       - run: git config --global user.name "GeonHo Tony Han Circle CI Bot"
       - add_ssh_keys:
           fingerprints:
-            - 'da:1f:cf:8d:3c:12:fc:72:6f:0e:d5:4e:38:a3:d2:82'
+            - '28:1b:c0:2f:a5:20:e7:5d:e9:12:ba:23:53:32:ce:27'
       - run: npm install
       - run: npm run ts-node ./scripts/blog/deploy.ts
 
