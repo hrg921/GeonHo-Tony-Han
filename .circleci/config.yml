@@ -21,6 +21,7 @@ jobs:
       - attach_workspace:
           at: /tmp/blog
       - checkout
+      - run: ls
       - run: bash ./scripts/blog/build.sh
       - persist_to_workspace:
           root: .
