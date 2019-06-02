@@ -22,7 +22,7 @@ jobs:
           at: .
       - run: bash ./scripts/blog/build.sh
       - persist_to_workspace:
-          root: .
+          root: packages/blog/public
           paths: .
   deploy-blog:
     shell: /bin/bash
@@ -33,6 +33,7 @@ jobs:
           at: .
       - run: git config --global user.email "hrg921@gmail.com"
       - run: git config --global user.name "GeonHo Tony Han Circle CI Bot"
+      - run: npm install
       - run: ls
       - run: npm run ts-node ./scripts/blog/deploy.ts
 
