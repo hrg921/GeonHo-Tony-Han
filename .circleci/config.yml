@@ -9,13 +9,9 @@ jobs:
       - attach_workspace:
           at: /tmp/blog
       - checkout
-      - run: sudo apt-get install tree
-      - run: tree
       - run: bash ./scripts/blog/install.sh
-      - run: tree
-      - run: ls
       - persist_to_workspace:
-          root: /tmp/blog
+          root: .
           paths: packages/blog
   build-blog:
     shell: /bin/bash
@@ -24,6 +20,8 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/blog
+      - run: sudo apt-get install tree
+      - run: tree
       - run: echo $PWD
       - run: ls
       - run: bash ./scripts/blog/build.sh
