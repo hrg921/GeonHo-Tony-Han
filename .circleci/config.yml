@@ -22,8 +22,8 @@ jobs:
           at: .
       - run: bash ./scripts/blog/build.sh
       - persist_to_workspace:
-          root: packages/blog/public
-          paths: .
+          root: .
+          paths: packages/blog/public
   deploy-blog:
     shell: /bin/bash
     docker:
