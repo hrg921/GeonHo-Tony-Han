@@ -6,13 +6,12 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
-      - attach_workspace:
-          at: /tmp/blog
       - checkout
       - run: bash ./scripts/blog/install.sh
+      - run: ls
       - persist_to_workspace:
-          root: .
-          paths: packages/blog/node_modules/**/*
+          root: /tmp/blog
+          paths: packages/blog
   build-blog:
     shell: /bin/bash
     docker:
@@ -20,8 +19,8 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/blog
-      - checkout
       - run: echo $PWD
+      - run: ls
       - run: bash ./scripts/blog/build.sh
       - persist_to_workspace:
           root: .
