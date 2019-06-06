@@ -15,7 +15,7 @@ jobs:
       - restore_cache:
           name: Restore Cache for private package node_modules
           keys:
-            - private-node_modules-{{ .Branch }}-{{ checksum "packages/apollo-server/yarn.lock" }}-v2
+            - private-node_modules-{{ .Branch }}-{{ checksum "packages/private/yarn.lock" }}-v2
       - run:
           name: Install Private Package Dependencies
           command: |
@@ -23,7 +23,7 @@ jobs:
             yarn install
       - save_cache:
           name: Save Cache for private package node_modules
-          key: private-node_modules-{{ .Branch }}-{{ checksum "packages/apollo-server/yarn.lock" }}-v2
+          key: private-node_modules-{{ .Branch }}-{{ checksum "packages/private/yarn.lock" }}-v2
           paths:
             - packages/private/node_modules
             - ~/.cache/yarn
