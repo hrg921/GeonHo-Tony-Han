@@ -1,6 +1,36 @@
-version: 2
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+  aws-s3: circleci/aws-s3@1.0.0
+  slack: circleci/slack@2.5.1
 
 jobs:
+  install-private-dependencies:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/GeonHo-Tony-Han
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Cache for private package node_modules
+          keys:
+            - private-node_modules-{{ .Branch }}-{{ checksum "packages/apollo-server/yarn.lock" }}-v2
+      - run:
+          name: Install Private Package Dependencies
+          command: |
+            cd ./packages/private/node_modules
+            yarn install
+      - save_cache:
+          name: Save Cache for private package node_modules
+          key: private-node_modules-{{ .Branch }}-{{ checksum "packages/apollo-server/yarn.lock" }}-v2
+          paths:
+            - packages/private/node_modules
+            - ~/.cache/yarn
+      - persist_to_workspace:
+          root: .
+          paths: .
+      - slack/status
   install-blog-dependencies:
     shell: /bin/bash
     docker:
@@ -22,6 +52,22 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: packages/blog/public
+  build-private:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/GeonHo-Tony-Han
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build private package
+          command: |
+            cd ./packages/private
+            yarn build
+      - persist_to_workspace:
+          root: .
+          paths: packages/private/build
+      - slack/status
   deploy-blog:
     shell: /bin/bash
     docker:
@@ -43,10 +89,25 @@ jobs:
             git commit -m "Deploy via CircleCI"
             # Push quietly to prevent showing the token in log
             git push -q -f https://${GITHUB_PERSONAL_TOKEN}@github.com/hrg921/blog.git
+  deploy-private:
+    docker:
+      - image: circleci/python:2.7
+    working_directory: ~/GeonHo-Tony-Han
+    steps:
+      - attach_workspace:
+          at: .
+      - aws-cli/install
+      - aws-cli/configure
+      - aws-s3/sync:
+          from: packages/private/build
+          to: s3://$PRIVATE_BUCKET_NAME
+          overwrite: true
+      - aws cloudfront create-invalidation --distribution-id $PRIVATE_CDN_DISTRIBUTION_ID --paths "/*"
+      - slack/status
 
 workflows:
-  version: 2
-  build-and-deploy-blog:
+  version: 2.1
+  blog:
     jobs:
       - install-blog-dependencies
       - build-blog:
@@ -54,5 +115,13 @@ workflows:
             - install-blog-dependencies
       - deploy-blog:
           requires:
-            - install-blog-dependencies
             - build-blog
+  private:
+    jobs:
+      - install-private-dependencies
+      - build-private:
+          requires:
+            - install-private-dependencies
+      - deploy-private:
+          requires:
+            - build-private
