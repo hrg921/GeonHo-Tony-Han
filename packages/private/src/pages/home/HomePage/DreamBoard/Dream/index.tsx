@@ -20,6 +20,7 @@ export default React.memo((props: Props) => {
 const Container = styled.section<{ imageUrl: string }>`
   &::after {
     background-image: url(${props => props.imageUrl});
+    background-position: bottom;
     background-size: cover;
     content: '';
     height: 100%;

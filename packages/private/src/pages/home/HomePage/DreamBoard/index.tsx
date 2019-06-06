@@ -30,6 +30,7 @@ const Title = styled.h1`
 
 const DreamContainer = styled.div`
   display: grid;
+  grid-auto-rows: 240px;
   grid-column-gap: 24px;
   grid-template-columns: repeat(4, 1fr);
 
