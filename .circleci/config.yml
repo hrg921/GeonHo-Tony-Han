@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Install Private Package Dependencies
           command: |
-            cd ./packages/private/node_modules
+            cd ./packages/private
             yarn install
       - save_cache:
           name: Save Cache for private package node_modules
