@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { PADDING_LEFT as PAGE_PADDING_LEFT, PADDING_RIGHT as PAGE_PADDING_RIGHT } from '../../constants';
+import {
+  PADDING_LEFT as PAGE_PADDING_LEFT,
+  PADDING_RIGHT as PAGE_PADDING_RIGHT,
+} from '../../constants';
 import { Props } from './interface';
 
 const GAP = 32;
