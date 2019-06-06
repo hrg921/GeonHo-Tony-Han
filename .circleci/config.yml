@@ -102,7 +102,9 @@ jobs:
           from: packages/private/build
           to: s3://$PRIVATE_BUCKET_NAME
           overwrite: true
-      - aws cloudfront create-invalidation --distribution-id $PRIVATE_CDN_DISTRIBUTION_ID --paths "/*"
+      - run:
+          name: Invalidate CDN for private.geonho.com
+          command: aws cloudfront create-invalidation --distribution-id $PRIVATE_CDN_DISTRIBUTION_ID --paths "/*"
       - slack/status
 
 workflows:
