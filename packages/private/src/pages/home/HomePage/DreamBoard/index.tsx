@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import datas from './data';
 import Dream from './Dream';
 
-
 export default React.memo(() => (
   <Container>
     <Title>🌟 Dream Board</Title>
@@ -30,7 +29,11 @@ const Title = styled.h1`
 `;
 
 const DreamContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-column-gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: 750px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

@@ -21,15 +21,19 @@ const Container = styled.section`
 `;
 
 const Title = styled.h1`
-  display: flex;
   font-size: 32px;
-  justify-content: center;
   margin-bottom: 30px;
   width: 100%;
+  text-align: center;
 `;
 
 const CoreValueContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 32px;
   width: 100%;
+
+  @media screen and (max-width: 750px) {
+    grid-template-columns: 1fr;
+  }
 `;

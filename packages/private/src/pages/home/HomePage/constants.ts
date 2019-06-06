@@ -1,4 +1,0 @@
-const PADDING_LEFT = 48;
-const PADDING_RIGHT = 48;
-
-export { PADDING_LEFT, PADDING_RIGHT };

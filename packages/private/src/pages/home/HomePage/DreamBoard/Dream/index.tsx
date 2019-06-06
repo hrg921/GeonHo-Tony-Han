@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import {
-  PADDING_LEFT as PAGE_PADDING_LEFT,
-  PADDING_RIGHT as PAGE_PADDING_RIGHT,
-} from '../../constants';
 import { Props } from './interface';
 
-const GAP = 32;
 const PADDING = 20;
 
 export default React.memo((props: Props) => {
@@ -38,23 +32,9 @@ const Container = styled.section<{ imageUrl: string }>`
   }
 
   color: white;
-  height: calc(
-    (
-        (
-            100vw - ${PAGE_PADDING_LEFT}px - ${PAGE_PADDING_RIGHT}px -
-              ${GAP * 3}px
-          ) / 4 - ${PADDING}px * 2
-      ) * 240 / 352
-  );
   margin-bottom: 30px;
-  margin-right: ${GAP}px;
-  max-width: 352px;
   padding: ${PADDING}px;
   position: relative;
-  width: calc(
-    (100vw - ${PAGE_PADDING_LEFT}px - ${PAGE_PADDING_RIGHT}px - ${GAP * 3}px) /
-      4 - ${PADDING}px * 2
-  );
 
   &:nth-child(4n) {
     margin-right: 0;
