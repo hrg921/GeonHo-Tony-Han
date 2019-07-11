@@ -8,9 +8,22 @@
     "@types/gh-pages": "^2.0.0",
     "@types/node": "^12.0.0",
     "chalk": "^2.4.2",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
     "gh-pages": "^2.0.1",
+    "husky": "^3.0.0",
     "lerna": "^3.13.3",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && ./node_modules/.bin/git-cz --hook"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
