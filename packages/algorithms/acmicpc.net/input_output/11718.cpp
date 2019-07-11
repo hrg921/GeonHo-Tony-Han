@@ -2,16 +2,17 @@
 // Created by GeonHo Han on 2019-05-22.
 //
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
+int main()
+{
 
     string str;
     while (true)
     {
         getline(cin, str);
-        if (str=="")
+        if (str == "")
             break;
         cout << str << endl;
     }
