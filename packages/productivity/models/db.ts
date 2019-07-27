@@ -14,6 +14,7 @@ const connection = createConnection({
   username,
   password,
   database,
+  entities: ['entities/*.ts'],
 });
 
 export default connection;
