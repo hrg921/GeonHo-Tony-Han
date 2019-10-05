@@ -1,0 +1,3 @@
+# wlog
+
+log all writings
