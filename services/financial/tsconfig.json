@@ -1,16 +1,21 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es2017"
-    ],
+    "lib": ["es2017", "dom"],
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
     "target": "es2017",
-    "outDir": "lib"
+    "outDir": "lib",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@entities": ["src/entity/*"],
+      "@models": ["src/models/*"],
+      "@repositories": ["src/repositories/*"],
+      "@services": ["src/services/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

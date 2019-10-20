@@ -2,6 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "deploy:financial": "cd services/financial && serverless deploy --aws-profile hrg921@korea.ac.kr",
+    "dev:financial": "cd services/financial && serverless offline",
     "ts-node": "ts-node"
   },
   "devDependencies": {
