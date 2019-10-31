@@ -1,9 +1,9 @@
-import { Field, ObjectType } from 'type-graphql';
+import { Field, InputType } from 'type-graphql';
 
 import { Currency } from './currency';
 
-@ObjectType()
-export class Value {
+@InputType()
+export class NewValue {
   @Field()
   amount: number;
 
