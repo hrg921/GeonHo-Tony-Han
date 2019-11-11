@@ -9,8 +9,10 @@ export const ACCOUNT_REPOSITORY_TOKEN = 'ACCOUNT_REPOSITORY';
 export const accountProviders: Provider[] = [
   {
     provide: ACCOUNT_REPOSITORY_TOKEN,
-    useFactory: (connection: Connection) =>
-      connection.getMongoRepository(AccountEntity),
+    useFactory: (connection: Connection) => {
+      console.log(connection);
+      return connection.getMongoRepository(AccountEntity);
+    },
     inject: [DATABASE_CONNECTION_TOKEN],
   },
 ];
