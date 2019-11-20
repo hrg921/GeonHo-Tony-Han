@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@slack/webhook": "^5.0.0"
+  },
+  "devDependencies": {
+    "webpack-node-externals": "^1.7.2"
   }
 }

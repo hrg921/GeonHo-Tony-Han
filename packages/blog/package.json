@@ -27,7 +27,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.14",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "webpack-node-externals": "^1.7.2"
   },
   "keywords": [
     "gatsby"
